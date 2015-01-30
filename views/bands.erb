@@ -12,7 +12,7 @@
 
 <hr>
 
-<h4>Add venues that <%= @band.name %> has played:</h4>
+<h4>Which venues has <%= @band.name %> played?</h4>
 <% if @venues.any?() %>
   <form action="/band/<%= @band.id %>" method="post">
     <% @venues.each() do |venue| %>
