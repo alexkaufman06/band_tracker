@@ -18,6 +18,7 @@ end
 
 get('/band/:id') do
   @band = Band.find(params.fetch("id").to_i())
+  @venues = Venue.all()
   erb(:bands)
 end
 
@@ -25,4 +26,13 @@ get('/band/delete/:id') do
   to_destroy_band = Band.find(params.fetch('id').to_i())
   to_destroy_band.destroy()
   redirect('/')
+end
+
+post('/band/:id') do
+  band_id = params.fetch('id').to_i()
+  @band = Band.find(band_id)
+  venue_ids = params.fetch('venue_ids')
+  @band.update({ :venue_ids => venue_ids })
+  url = "/band/" + band_id.to_s()
+  redirect(url)
 end
