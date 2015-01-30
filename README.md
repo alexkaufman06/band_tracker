@@ -32,7 +32,9 @@ $ rake db:migrate
 $ rake db:test:prepare
 ```
 ### Bug Reports
-Zarro Boogs
+If the user clicks Add venue(s) with no venue selected, the page will crash.  I
+tried fixing this will an if else statement in my app.rb but couldn't get it
+to work.
 ### Author
 Alex Kaufman
 #### MIT License
