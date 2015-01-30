@@ -20,3 +20,9 @@ get('/band/:id') do
   @band = Band.find(params.fetch("id").to_i())
   erb(:bands)
 end
+
+get('/band/delete/:id') do
+  to_destroy_band = Band.find(params.fetch('id').to_i())
+  to_destroy_band.destroy()
+  redirect('/')
+end

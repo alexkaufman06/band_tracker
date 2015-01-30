@@ -18,6 +18,7 @@
   <% @bands.each() do |band| %>
     <li>
       <a href="/band/<%= band.id() %>"><%= band.name() %></a>
+      <a href="/band/delete/<%= band.id() %>"><em>Delete Band</em></a>
     </li>
   <% end %>
   </ul>
