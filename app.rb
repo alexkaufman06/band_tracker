@@ -36,3 +36,12 @@ post('/band/:id') do
   url = "/band/" + band_id.to_s()
   redirect(url)
 end
+
+patch('/band/:id') do
+  band_id = params.fetch("id")
+  @band = Band.find(band_id.to_i())
+  new_name = params.fetch("new_band_name")
+  @band.update({ :name => new_name })
+  url = "/band/" + band_id
+  redirect(url)
+end
