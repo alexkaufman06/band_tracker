@@ -2,13 +2,13 @@ require("bundler/setup")
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + "/lib/*.rb"].each { |file| require file }
 
-get('/') do
-  @bands = Band.all()
-  @venues = Venue.all()
-  erb(:index)
+get '/' do
+  @bands = Band.all
+  @venues = Venue.all
+  erb :index
 end
 
-post('/') do
+post '/' do
   band_name = params.fetch("band_name")
   Band.create({ :name => band_name })
   venue_name = params.fetch("venue_name")
@@ -16,10 +16,10 @@ post('/') do
   redirect('/')
 end
 
-get('/band/:id') do
-  @band = Band.find(params.fetch("id").to_i())
-  @venues = Venue.all()
-  erb(:bands)
+get '/band/:id' do
+  @band = Band.find(params.fetch("id").to_i)
+  @venues = Venue.all
+  erb :bands
 end
 
 get('/band/delete/:id') do
