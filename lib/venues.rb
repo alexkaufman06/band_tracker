@@ -1,11 +1,11 @@
 class Venue < ActiveRecord::Base
   has_and_belongs_to_many :bands
-  validates(:name, :presence => true)
-  before_save(:capitalize_name)
+  validates :name, :presence => true
+  before_save :capitalize_name
 
 private
 
-  define_method(:capitalize_name) do
-    self.name=(name().capitalize())
+  def capitalize_name
+    self.name = name.capitalize
   end
 end
